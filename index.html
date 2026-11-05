@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>张雨婷 · 个人主页</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#181b22; --text:#e8eaed; --sub:#9aa3af;
+    --accent:#6ea8fe; --accent2:#7ee0c0; --line:#262b34;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  header{padding:90px 0 60px;text-align:center;
+    background:radial-gradient(1200px 400px at 50% -10%,rgba(110,168,254,.18),transparent);}
+  .avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;color:#0f1115}
+  h1{font-size:34px;letter-spacing:.5px}
+  .tag{color:var(--sub);margin-top:10px;font-size:16px}
+  .btns{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:10px 22px;border-radius:10px;font-size:14px;border:1px solid var(--line);
+    background:var(--card);transition:.2s}
+  .btn.primary{background:var(--accent);color:#0f1115;border-color:var(--accent);font-weight:600}
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  h2{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:6px;height:20px;border-radius:3px;
+    background:linear-gradient(var(--accent),var(--accent2))}
+  p{color:var(--sub);margin-bottom:12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:16px;margin-bottom:8px}
+  .card p{font-size:14px;margin:0}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:13px;
+    background:rgba(110,168,254,.12);color:var(--accent);margin:4px 6px 4px 0}
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+  .proj h3{font-size:16px}
+  .proj .meta{font-size:13px;color:var(--sub);margin:6px 0}
+  footer{text-align:center;color:var(--sub);font-size:13px;padding:40px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="avatar">雨</div>
+    <h1>张雨婷</h1>
+    <div class="tag">统计学专业学生 · 南京农业大学 · 数据分析方向</div>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/xx895" target="_blank">GitHub</a>
+      <a class="btn" href="mailto:59505601@qq.com">联系我</a>
+    </div>
+  </div>
+</header>
+
+<section class="wrap" id="about">
+  <h2>关于我</h2>
+  <p>我是 <strong>张雨婷</strong>，就读于 <strong>南京农业大学 · 统计学</strong>。
+  正在按 Excel → SQL → Python → 数据可视化的顺序构建数据分析能力，把每一次练习都当作作品沉淀到 GitHub 上。</p>
+  <p>关注方向：描述统计、业务指标分析，以及用代码把数据结论讲清楚。</p>
+</section>
+
+<section class="wrap" id="skills">
+  <h2>技能与工具</h2>
+  <div class="grid">
+    <div class="card"><h3>Python</h3><p>基础语法、标准库、描述统计脚本，正在学 Pandas</p></div>
+    <div class="card"><h3>Excel</h3><p>常用函数、数据清洗、数据透视表</p></div>
+    <div class="card"><h3>SQL</h3><p>查询、聚合、多表关联，正在系统学习</p></div>
+    <div class="card"><h3>Git / GitHub</h3><p>版本管理、公开学习笔记、GitHub Pages 主页</p></div>
+  </div>
+  <div style="margin-top:18px">
+    <span class="pill">Python</span><span class="pill">Excel</span>
+    <span class="pill">SQL</span><span class="pill">Git</span>
+    <span class="pill">HTML/CSS</span><span class="pill">描述统计</span>
+  </div>
+</section>
+
+<section class="wrap" id="projects">
+  <h2>实践与作品</h2>
+  <div class="proj">
+    <h3>描述统计练习脚本</h3>
+    <div class="meta">Python · 2026.11 — <a href="https://github.com/xx895/learning-notes" target="_blank">查看仓库</a></div>
+    <p>用 Python 标准库对一组样本成绩计算均值、中位数与标准差，代码可直接运行复现；同仓库按周记录 Excel / SQL / Python 的学习笔记。</p>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <h2>联系我</h2>
+  <p>欢迎交流数据分析学习、组队做项目或开源协作：</p>
+  <p>GitHub：<a href="https://github.com/xx895" target="_blank">github.com/xx895</a></p>
+  <p>邮箱：<a href="mailto:59505601@qq.com">59505601@qq.com</a></p>
+</section>
+
+<footer>
+  © 2026 张雨婷 · 部署在 GitHub Pages
+</footer>
+
+</body>
+</html>
