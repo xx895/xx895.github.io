@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f7f8fa">
+<title>张雨婷 · 学习计划（手机版）</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --text:#15181e; --sub:#6b7280;
+    --line:#e8eaef; --accent:#3b6fe0; --accent-soft:#eaf0fd;
+    --done:#12a05c; --done-soft:#e7f6ef; --warn:#d97706;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;
+    font-size:16px;padding:0 14px 60px;
+  }
+  a{color:var(--accent);text-decoration:none}
+  .head{padding:22px 4px 12px}
+  .head h1{font-size:21px;letter-spacing:.3px}
+  .head .who{color:var(--sub);font-size:13.5px;margin-top:6px}
+  /* 顶部周切换 */
+  .tabs{
+    position:sticky;top:0;z-index:9;background:rgba(247,248,250,.92);
+    backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);
+    display:flex;gap:8px;overflow-x:auto;padding:10px 4px;margin:0 -14px 12px;
+    padding-left:18px;padding-right:18px;border-bottom:1px solid var(--line);
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs a{
+    flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--card);
+    border:1px solid var(--line);font-size:13.5px;color:var(--sub);white-space:nowrap;
+  }
+  .tabs a.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  /* 卡片 */
+  .card{
+    background:var(--card);border-radius:16px;padding:16px 16px 6px;
+    margin-bottom:14px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 1px 3px rgba(16,24,40,.03);
+  }
+  .card h2{font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .card h2 .n{
+    flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:var(--accent-soft);
+    color:var(--accent);font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .card .hint{font-size:12.5px;color:var(--sub);margin:2px 0 10px 30px}
+  /* 待办行 */
+  .task{
+    display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+    border-top:1px solid var(--line);font-size:15px;
+  }
+  .task:first-of-type{border-top:none}
+  .box{
+    flex:0 0 auto;width:21px;height:21px;border-radius:6px;border:1.8px solid #cfd4dd;
+    margin-top:2px;display:flex;align-items:center;justify-content:center;
+  }
+  .task .tx{flex:1;min-width:0}
+  .task .tm{font-size:12px;color:var(--sub);display:block;margin-top:1px}
+  .task .tm em{font-style:normal;color:var(--accent);font-weight:600}
+  .tag{
+    display:inline-block;font-size:11px;padding:1px 7px;border-radius:5px;
+    background:var(--accent-soft);color:var(--accent);margin-left:6px;vertical-align:1px;font-weight:600;
+  }
+  .tag.must{background:#fdecec;color:#c0392b}
+  .tag.opt{background:#f1f2f5;color:#7b8494}
+  /* 提示块 */
+  .note{
+    background:#fff9ec;border:1px solid #f7e6c4;border-radius:12px;
+    padding:12px 14px;font-size:13.5px;color:#8a5a13;margin-bottom:14px;line-height:1.6;
+  }
+  .note b{color:#7a4d0b}
+  .red{
+    background:#fdf1f1;border:1px solid #f6d5d5;border-radius:12px;
+    padding:12px 14px;font-size:13.5px;color:#a33;margin-bottom:14px;
+  }
+  /* 视频链接 */
+  .vid{display:block;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+  .vid:first-of-type{border-top:none}
+  .vid .t{font-weight:600}
+  .vid .d{font-size:12.5px;color:var(--sub);margin-top:3px}
+  /* 通用标题 */
+  .sec{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.4px;
+    padding:8px 6px 8px;margin-top:6px;text-transform:uppercase}
+  .foot{text-align:center;color:var(--sub);font-size:12px;padding:28px 0 10px;line-height:1.8}
+  /* 大屏时居中限宽 */
+  @media (min-width:640px){
+    body{max-width:600px;margin:0 auto;padding-left:20px;padding-right:20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1>每天做什么</h1>
+  <div class="who">张雨婷 · 南京农业大学统计学 · 大一下学期（2027 春）</div>
+</div>
+
+<nav class="tabs">
+  <a href="#today" class="on">今天</a>
+  <a href="#loop">每日循环</a>
+  <a href="#w1">第1-2周</a>
+  <a href="#w3">第3-5周</a>
+  <a href="#w6">第6-8周</a>
+  <a href="#w9">第9-12周</a>
+  <a href="#w13">第13-18周</a>
+  <a href="#vid">视频清单</a>
+  <a href="#rule">红线</a>
+</nav>
+
+<div class="note">
+  <b>先看这条：</b>计划表里原来写的是「大一下」，不是「现在」。你现在正在上大一上学期（11 月，第 3 个月），眼下真正要做的是 <b>高数/线代跟上 + 每周 3–5 小时技能起步</b>。下面从「今天」开始按天排，一直排到本学期期末（2027 年 1 月中）。
+</div>
+
+<!-- ============ 今天 ============ -->
+<div class="sec" id="today">2026 / 11 / 4（周三）· 第 1 天</div>
+
+<div class="card">
+  <h2><span class="n">1</span>每天固定（不管多忙都做）</h2>
+  <div class="hint">合计 25 分钟，最好固定时间点</div>
+  <label class="task"><span class="box"></span><span class="tx">背 30 个四级单词<span class="tm">早上 · 12 分钟 · 用 App 就行</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">高数 / 线代当天作业写完<span class="tm">晚上 · 30–60 分钟 · 这是第一优先级</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">睡前记一句「今天学到了啥」<span class="tm">睡前 · 1 分钟 · 攒到周日写周记</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">2</span>技能（今天 30 分钟）</h2>
+  <div class="hint">今天只开 Excel 的头，别贪多</div>
+  <label class="task"><span class="box"></span><span class="tx">看王佩丰 Excel 第 1 讲<span class="tag">必做</span><span class="tm"><em>20 分钟</em> · 认识 Excel 界面、保存、工作表</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">第 2 讲：单元格格式<span class="tag">必做</span><span class="tm"><em>20 分钟</em> · 数字格式、日期、自定义格式</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">边看边在 Excel 里跟着敲<span class="tag must">别只看</span><span class="tm">看视频不敲 = 白看</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">跑一次 demo.py 验证 Python 环境<span class="tag opt">5 分钟</span><span class="tm">看到「均值 86.8」就过关，不用装新软件</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">3</span>作品集（今天 15 分钟）</h2>
+  <div class="hint">GitHub 两个仓库，链接弄好才敢投简历</div>
+  <label class="task"><span class="box"></span><span class="tx">github.com/new 建空仓库 <b>xx895.github.io</b><span class="tag must">别勾README</span><span class="tm">Public → 三个勾一个都不勾 → Create</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">同样再建一个 <b>learning-notes</b><span class="tm">一样全空</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">回我一句「建好了」，推送我来跑<span class="tag">15 分钟</span></span></label>
+</div>
+
+<div class="note">
+  <b>今天加起来 ≈ 70 分钟。</b>做不完就先做「每天固定」+ Excel 第 1 讲，其余挪到明天。别为了打勾硬塞。
+</div>
+
+<!-- ============ 每日循环 ============ -->
+<div class="sec" id="loop">每天都一样的部分</div>
+
+<div class="card">
+  <h2><span class="n">✓</span>每日三件事（雷打不动）</h2>
+  <div class="hint">总时长 25 分钟，不含课内作业</div>
+  <label class="task"><span class="box"></span><span class="tx">四级单词 30 个<span class="tm">早上起床后 / 食堂排队 · 12 分钟</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">课内作业清零，不留到第二天<span class="tm">晚上 · 高数线代优先于一切技能</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">一句话日志<span class="tm">睡前 · 记到手机备忘录，周日汇总</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">✓</span>每周固定（技能 3–5 小时）</h2>
+  <div class="hint">拆成 4 个 45 分钟就够，下面按天排好了</div>
+  <label class="task"><span class="box"></span><span class="tx">周一 / 周三：看 2 讲视频 + 跟着敲<span class="tm">各 45 分钟</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：整块时间做练习文件<span class="tm">60 分钟 · 不被打断</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：填周记 + 提交 GitHub<span class="tm">20 分钟 · 顺便复盘</span></span></label>
+</div>
+
+<!-- ============ 第1-2周 ============ -->
+<div class="sec" id="w1">第 1–2 周 · 11/4 – 11/15 · Excel 入门</div>
+
+<div class="card">
+  <h2><span class="n">一</span>11/4 周三</h2>
+  <div class="hint">约 70 分钟（见「今天」）</div>
+  <label class="task"><span class="box"></span><span class="tx">Excel 第 1–2 讲 + 跟敲</span></label>
+  <label class="task"><span class="box"></span><span class="tx">建 2 个 GitHub 仓库</span></label>
+  <label class="task"><span class="box"></span><span class="tx">跑 demo.py</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">二</span>11/5 周四 · 11/6 周五</h2>
+  <div class="hint">每天 30 分钟，期末前的日常节奏</div>
+  <label class="task"><span class="box"></span><span class="tx">周四：Excel 第 3 讲 查找替换定位<span class="tm">跟着敲一遍，练 Ctrl+F / 通配符</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周四：把 2 个仓库 push 上去<span class="tm">我帮你跑，你只需要点一下授权</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周五：Excel 第 4 讲 排序筛选<span class="tm">练多条件排序</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周五：xx895.github.io 开 Pages<span class="tm">Settings → Pages → main / root → Save</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">三</span>11/7 周六 · 11/8 周日</h2>
+  <div class="hint">周末是整块时间，也是复盘时间</div>
+  <label class="task"><span class="box"></span><span class="tx">周六：用 Excel 做一张「班级成绩表」<span class="tm">60 分钟 · 30 行假数据，练格式 + 排序 + 筛选</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：把文件放进仓库 exercises/<span class="tm">这就是第一个作品</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：填 week-log/W1.md + 提交<span class="tm">20 分钟</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：打开自己能打开的主页看一眼<span class="tm">确认没 404，看着有成就感</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">四</span>11/9 – 11/15（第 2 周）</h2>
+  <div class="hint">Excel 函数周：这周的目标是 VLOOKUP 和 SUMIFS</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：第 6 讲 认识数据透视表<span class="tm">45 分钟 · 本周最重要的一讲</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：第 11 讲 VLOOKUP + SUMIFS<span class="tm">45 分钟 · 工作中用得最多</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：用透视表把成绩表做成分析表<span class="tm">60 分钟 · 按班级/分数段汇总</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W2 周记 + 提交</span></label>
+</div>
+
+<!-- ============ 第3-5周 ============ -->
+<div class="sec" id="w3">第 3–5 周 · 11/16 – 12/6 · Excel 收尾 + SQL 开坑</div>
+
+<div class="card">
+  <h2><span class="n">五</span>第 3 周 11/16 – 11/22</h2>
+  <div class="hint">期中前后，课内抓高数线代</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：Excel 图表 + 条件格式<span class="tm">45 分钟</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：SQL 入门第 1–2 集<span class="tm">装好数据库 / 用在线 SQL 练习网站更省事</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：给成绩表加图表，做成一张看板<span class="tm">60 分钟 · Excel 阶段收尾作品</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W3 周记 ｜ <span class="tag must">本周先保课内</span></span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">六</span>第 4 周 11/23 – 11/29</h2>
+  <div class="hint">SQL 核心语法，每天只 1 集</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：SELECT / WHERE（第 3–5 集）</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：GROUP BY 聚合（第 6–8 集）</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：在线题库做 5 道简单题<span class="tm">60 分钟 · LeetCode 或牛客 SQL 入门</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W4 周记 + 把 SQL 笔记写进仓库</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">七</span>第 5 周 11/30 – 12/6</h2>
+  <div class="hint">多表 JOIN + 第一次看真实招聘要求</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：多表 JOIN（第 9–10 集）</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：再做 5 道题，专练 JOIN</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：Boss直聘搜「数据分析」截 3 个 JD<span class="tm">不投递 · 只看要求，列成技能清单</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：写 技能差距表 到仓库<span class="tm">这一步会让你知道自己缺什么</span></span></label>
+</div>
+
+<!-- ============ 第6-8周 ============ -->
+<div class="sec" id="w6">第 6–8 周 · 12/7 – 12/27 · Python 入门</div>
+
+<div class="card">
+  <h2><span class="n">八</span>第 6 周 12/7 – 12/13</h2>
+  <div class="hint">Python 基础语法，不碰 Pandas</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：变量 / 列表 / 字典（前 3 集）</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：if / for / 函数（第 4–5 集）</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：写一个读 csv 算均值的脚本<span class="tm">60 分钟 · 这就是你第一个真 Python 程序</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W6 周记 + 提交脚本</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">九</span>第 7 周 12/14 – 12/20</h2>
+  <div class="hint">Pandas 清洗数据，第一个迷你项目</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：Pandas 读取 + 查看数据结构</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：缺失值 / 去重 / 分组统计</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：拿一份真实数据（成绩表 / 公开数据）清洗<span class="tm">60 分钟 · 做成迷你项目雏形</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W7 周记</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">十</span>第 8 周 12/21 – 12/27</h2>
+  <div class="hint">画图 + 期末复习启动</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：Matplotlib 画折线 / 柱状 / 散点</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：给上周的数据画 3 张图</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：把图 + 结论写成一份小分析<span class="tm">60 分钟 · 带图的分析笔记</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W8 周记 ｜ <span class="tag must">期末复习开始占主导</span></span></label>
+</div>
+
+<!-- ============ 第9-12周 ============ -->
+<div class="sec" id="w9">第 9–12 周 · 12/28 – 1/24 · 复习为主</div>
+
+<div class="red">
+  <b>这四周技能要主动降速。</b>期末挂科比少学一门 SQL 严重得多。技能每周压缩到 1 次（周六 45 分钟），只复习不新学。
+</div>
+
+<div class="card">
+  <h2><span class="n">十一</span>第 9 周 12/28 – 1/3（含元旦）</h2>
+  <label class="task"><span class="box"></span><span class="tx">技能：复习 Excel + SQL 笔记，整理仓库 README<span class="tm">45 分钟就够</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">主任务：高数 / 线代 / 统计导论复习提纲</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">十二</span>第 10 周 1/4 – 1/10</h2>
+  <label class="task"><span class="box"></span><span class="tx">技能：暂停新内容，只归档本学期作品</span></label>
+  <label class="task"><span class="box"></span><span class="tx">主任务：真题 + 错题本</span></label>
+</div>
+
+<div class="card">
+  <h2><span class="n">十三</span>第 11–12 周 1/11 – 1/24</h2>
+  <label class="task"><span class="box"></span><span class="tx">期末考试周，技能完全暂停</span></label>
+  <label class="task"><span class="box"></span><span class="tx">考完当天，把所有练习 commit 归档一次</span></label>
+</div>
+
+<!-- ============ 寒假 ============ -->
+<div class="sec" id="w13">寒假 1/25 起 · 第 1 个项目</div>
+
+<div class="card">
+  <h2><span class="n">十四</span>寒假三周安排</h2>
+  <div class="hint">考完再动，不占用复习时间</div>
+  <label class="task"><span class="box"></span><span class="tx">第 1 周：找数据集 + 定 3 个分析问题<span class="tm">数据从哪来、指标怎么定、结论怎么用</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">第 2 周：用 SQL / Pandas 取数 + 算指标</span></label>
+  <label class="task"><span class="box"></span><span class="tx">第 3 周：画图 + 写 1 页结论 + 放上 GitHub<span class="tm">这就是简历上的第一个项目</span></span></label>
+</div>
+
+<!-- ============ 视频清单 ============ -->
+<div class="sec" id="vid">按顺序看的视频（点开就能看）</div>
+
+<div class="card">
+  <h2><span class="n">▶</span>第 1 阶段：Excel（现在）</h2>
+  <div class="hint">王佩丰《Excel 基础教程 24 讲》· 24 讲看完就够用</div>
+  <a class="vid" href="https://www.bilibili.com/video/BV1bJLF6WEca" target="_blank">
+    <div class="t">第 1 讲 认识 Excel（从这里开始）</div>
+    <div class="d">王佩丰经典 Excel 24 讲 · 分集版，一讲一个链接</div>
+  </a>
+  <a class="vid" href="https://www.bilibili.com/video/BV14pLF6HE2Q" target="_blank">
+    <div class="t">第 2 讲 单元格格式设计</div>
+    <div class="d">数字/日期/自定义格式</div>
+  </a>
+  <a class="vid" href="https://www.bilibili.com/video/BV14pLF6HEjw" target="_blank">
+    <div class="t">第 3 讲 查找替换定位</div>
+    <div class="d">Ctrl+F、通配符、定位空值</div>
+  </a>
+  <a class="vid" href="https://www.bilibili.com/video/BV1hVLF6tERf" target="_blank">
+    <div class="t">第 6 讲 认识数据透视表</div>
+    <div class="d">第 2 周重点</div>
+  </a>
+  <a class="vid" href="https://www.bilibili.com/video/BV13fLw6vEg8" target="_blank">
+    <div class="t">第 11 讲 VLOOKUP</div>
+    <div class="d">第 3 周重点</div>
+  </a>
+</div>
+
+<div class="card">
+  <h2><span class="n">▶</span>第 2 阶段：SQL（第 3–5 周）</h2>
+  <div class="hint">二选一，别都看；先跟速通版</div>
+  <a class="vid" href="https://www.bilibili.com/video/BV1Cm421373b" target="_blank">
+    <div class="t">尚硅谷《MySQL 快速入门》17 小时</div>
+    <div class="d">只看「数据查询篇」：基础 select → where → 聚合 → 分组 → 排序 → 多表查询</div>
+  </a>
+  <a class="vid" href="https://www.bilibili.com/video/BV1iq4y1u7vj" target="_blank">
+    <div class="t">宋红康《MySQL 从小白到大神》（当字典查，不用从头看）</div>
+    <div class="d">哪句语法忘了再来这里搜</div>
+  </a>
+</div>
+
+<div class="card">
+  <h2><span class="n">▶</span>第 3 阶段：Python（第 6–8 周）</h2>
+  <a class="vid" href="https://www.bilibili.com/video/BV1ReshzoEgG/" target="_blank">
+    <div class="t">黑马程序员《Python 数据分析》</div>
+    <div class="d">先看 Numpy 入门前几集 → Pandas 基础 → Matplotlib</div>
+  </a>
+</div>
+
+<div class="card">
+  <h2><span class="n">▶</span>课内配套：概率论（大一下会用到）</h2>
+  <a class="vid" href="https://www.bilibili.com/video/BV1ot411y7mU" target="_blank">
+    <div class="t">宋浩《概率论与数理统计》全集</div>
+    <div class="d">课前预习 / 期末复习用，别从头到尾刷</div>
+  </a>
+</div>
+
+<div class="card">
+  <h2><span class="n">▶</span>以后再说：BI、机器学习</h2>
+  <a class="vid" href="https://www.bilibili.com/video/BV1qa4y1H7wp" target="_blank">
+    <div class="t">孙兴华《PowerBI 火力全开》</div>
+    <div class="d">大二再开始，现在别看</div>
+  </a>
+</div>
+
+<!-- ============ 红线 ============ -->
+<div class="sec" id="rule">三条红线（比计划重要）</div>
+
+<div class="card">
+  <h2><span class="n">!</span>不做的事</h2>
+  <label class="task"><span class="box"></span><span class="tx"><b>不买课。</b>抖音/视频号「AI 短剧变现」「一套学会数据分析」全是引流<span class="tm">上面这些免费合集已经全覆盖</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx"><b>不垫钱接活。</b>任何「先出 demo」「先交保证金」的一律不碰</span></label>
+  <label class="task"><span class="box"></span><span class="tx"><b>不签劳动合同、不缴社保（大四前）。</b>保住应届生身份<span class="tm">这关系考公和校招资格</span></span></label>
+</div>
+
+<div class="note">
+  <b>这个页面存到手机的方法：</b>把文件发到微信「文件传输助手」→ 在手机上点开 → 右上角「…」→ 用浏览器打开 / 添加到主屏幕。或者放到你的 GitHub Pages，用 <b>xx895.github.io/plan.html</b> 随时随地打开（我可以帮你传）。
+</div>
+
+<div class="foot">
+  张雨婷 · 2026.11.4 生成<br>
+  目标：GPA 第一，技能每周 3–5 小时，作品集从第一天开始
+</div>
+
+</body>
+</html>
