@@ -117,10 +117,10 @@
 </div>
 
 <!-- ============ 今天 ============ -->
-<div class="sec" id="today">2026 / 11 / 16（周一）· 第 3 周 · 期中周 · 技能保底版</div>
+<div class="sec" id="today">2026 / 11 / 23（周一）· 第 4 周 · SQL 开坑（减半补欠版）</div>
 
 <div class="note">
-  <b>这周还是减半版。</b>W2 的周记根本没建（`week-log/W2.md` 不存在），说明上周连周日那 20 分钟都没落地。所以这周不加新内容，只把<b>透视表 + VLOOKUP</b> 补明白，技能总量 ≈2 小时。期中当前，课内永远排第一。
+  <b>还是减半版，但这次换了技能。</b>W2、W3 的周记都没建（`week-log/` 里只有 W1），说明这两周技能基本没动。所以不按总表上 GROUP BY，本周只补最基础的 <b>SELECT / WHERE / ORDER BY</b>，技能总量 ≈2 小时。给你备好了本机练习台，<b>不用装 MySQL、不用注册账号</b>。
 </div>
 
 <div class="card">
@@ -132,26 +132,26 @@
 </div>
 
 <div class="card">
-  <h2><span class="n">2</span>技能（今天 15 分钟 · 补 W2 欠的）</h2>
-  <div class="hint">只看开头一段，别整讲看完</div>
-  <label class="task"><span class="box"></span><span class="tx">第 6 讲「认识数据透视表」<span class="tag must">本周重点</span><span class="tm"><em>15 分钟</em> · 把「班级」拖到行、「高数」拖到值，出一张汇总表就够</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">顺手打开 Excel 拖一遍<span class="tag">别只看</span><span class="tm">用 `exercises/成绩表.xlsx`，没有就现敲 30 行假数据</span></span></label>
-  <a class="vid" href="https://www.bilibili.com/video/BV1hVLF6tERf" target="_blank" rel="noopener"><span class="t">王佩丰 Excel 第 6 讲 →</span><span class="d">BV1hVLF6tERf · 看开头 15 分钟</span></a>
+  <h2><span class="n">2</span>技能（今天 20 分钟 · SQL 第一眼）</h2>
+  <div class="hint">只看语法，别装数据库</div>
+  <label class="task"><span class="box"></span><span class="tx">认 SQL 长什么样：SELECT / FROM / WHERE<span class="tag must">本周重点</span><span class="tm"><em>20 分钟</em> · 从「基础 SELECT」那节开头看，记三件套就够</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">练习在本机台子上做，别跟视频装 MySQL<span class="tag">省事</span><span class="tm">`learning-notes/sql/sql.py` · Python 自带 sqlite，库和 30 行数据已建好</span></span></label>
+  <a class="vid" href="https://www.bilibili.com/video/BV1Cm421373b" target="_blank" rel="noopener"><span class="t">尚硅谷《MySQL 快速入门》→</span><span class="d">BV1Cm421373b · 从「基础 SELECT」看 20 分钟</span></a>
 </div>
 
 <div class="card">
   <h2><span class="n">3</span>本周节奏（提前知道就不慌）</h2>
-  <div class="hint">技能 2 小时分散在 5 天，周末一块整的</div>
-  <label class="task"><span class="box"></span><span class="tx">周二：自己动手做一遍透视表<span class="tm">15 分钟 · 按班级汇总高数平均分</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周三：第 11 讲 VLOOKUP 前 15 分钟<span class="tag must">重点</span><span class="tm">只记四个参数：查找值 / 区域 / 第几列 / 0</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周四：不看视频自己写一次 VLOOKUP<span class="tm">20 分钟 · 给成绩表加「等级」列</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周五：归档 + 列期中考试范围清单<span class="tm">15 分钟 · 存成 成绩表_函数版.xlsx</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周六：整块 45 分钟做「一页纸」+ 高数错题重做<span class="tm">条件格式标红低于 60 的</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周日：填 W3 周记 + push<span class="tm">20 分钟</span></span></label>
+  <div class="hint">技能 2 小时分散在 5 天，周六一块整的</div>
+  <label class="task"><span class="box"></span><span class="tx">周二：亲手敲出第一条 SQL<span class="tag must">重点</span><span class="tm">15 分钟 · `python sql.py init` 然后 `SELECT * FROM 成绩`</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：WHERE 的条件（比较 + AND/OR + LIKE）<span class="tm">15 分钟 · 写 3 条</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周四：ORDER BY 排序 + LIMIT 取前几行<span class="tm">15 分钟 · 写 3 条</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周五：9 条 SQL 归档成 w4.sql + 列期末范围清单<span class="tm">10 分钟 · 一次跑全</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：整块 60 分钟独立做 5 道题 + 20 分钟错题<span class="tm">对 3 题就算过</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：填 W4 周记 + push<span class="tm">20 分钟</span></span></label>
 </div>
 
 <div class="note">
-  <b>今天加起来 ≈ 60 分钟（含课内）。</b>做不完就只做「每天固定」+ 那 15 分钟透视表，其余挪到明天。期中周，课内掉分才叫真亏。
+  <b>今天加起来 ≈ 55 分钟（含课内）。</b>做不完就只做「每天固定」+ 那 20 分钟视频，其余挪到明天。课内掉分比少学一条 SQL 严重得多。
 </div>
 
 <!-- ============ 每日循环 ============ -->
@@ -215,7 +215,7 @@
 <div class="sec" id="w3">第 3–5 周 · 11/16 – 12/6 · Excel 收尾 + SQL 开坑</div>
 
 <div class="card">
-  <h2><span class="n">五</span>第 3 周 11/16 – 11/22</h2>
+  <h2><span class="n">五</span>第 3 周 11/16 – 11/22（已过）</h2>
   <div class="hint">期中前后，课内抓高数线代</div>
   <label class="task"><span class="box"></span><span class="tx">周一：Excel 图表 + 条件格式<span class="tm">45 分钟</span></span></label>
   <label class="task"><span class="box"></span><span class="tx">周三：SQL 入门第 1–2 集<span class="tm">装好数据库 / 用在线 SQL 练习网站更省事</span></span></label>
@@ -224,21 +224,22 @@
 </div>
 
 <div class="card">
-  <h2><span class="n">六</span>第 4 周 11/23 – 11/29</h2>
-  <div class="hint">SQL 核心语法，每天只 1 集</div>
-  <label class="task"><span class="box"></span><span class="tx">周一：SELECT / WHERE（第 3–5 集）</span></label>
-  <label class="task"><span class="box"></span><span class="tx">周三：GROUP BY 聚合（第 6–8 集）</span></label>
-  <label class="task"><span class="box"></span><span class="tx">周六：在线题库做 5 道简单题<span class="tm">60 分钟 · LeetCode 或牛客 SQL 入门</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周日：W4 周记 + 把 SQL 笔记写进仓库</span></label>
+  <h2><span class="n">六</span>第 4 周 11/23 – 11/29 <span class="tag">本周</span></h2>
+  <div class="hint">SQL 开坑，量减半，只碰 SELECT / WHERE / ORDER BY</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：认 SELECT / FROM / WHERE 三件套<span class="tm">20 分钟 · 只看不装 MySQL</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周二–周四：本机 sqlite 各写 3 条（查、筛、排）<span class="tm">各 15 分钟 · `learning-notes/sql/sql.py`</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周五：9 条归档成 `w4.sql`，一次跑通<span class="tm">10 分钟</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：整块 60 分钟独立做 5 题<span class="tm">对 3 题就算过 · 不查视频</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W4 周记 + push<span class="tm">20 分钟 · 补一句 W2/W3 没记</span></span></label>
 </div>
 
 <div class="card">
   <h2><span class="n">七</span>第 5 周 11/30 – 12/6</h2>
-  <div class="hint">多表 JOIN + 第一次看真实招聘要求</div>
-  <label class="task"><span class="box"></span><span class="tx">周一：多表 JOIN（第 9–10 集）</span></label>
-  <label class="task"><span class="box"></span><span class="tx">周三：再做 5 道题，专练 JOIN</span></label>
-  <label class="task"><span class="box"></span><span class="tx">周六：Boss直聘搜「数据分析」截 3 个 JD<span class="tm">不投递 · 只看要求，列成技能清单</span></span></label>
-  <label class="task"><span class="box"></span><span class="tx">周日：写 技能差距表 到仓库<span class="tm">这一步会让你知道自己缺什么</span></span></label>
+  <div class="hint">GROUP BY 分组统计（原第 4 周的内容顺延到这周）</div>
+  <label class="task"><span class="box"></span><span class="tx">周一：GROUP BY + COUNT / AVG / SUM（按班级算平均分）<span class="tm">25 分钟 · 还是在本机 sqlite 上练</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周三：自己写 3 条分组统计，再试一次 HAVING</span></label>
+  <label class="task"><span class="box"></span><span class="tx">周六：多表 JOIN 入门（成绩 × 班级）<span class="tm">60 分钟 · 这是 SQL 最值钱的一块</span></span></label>
+  <label class="task"><span class="box"></span><span class="tx">周日：W5 周记 + 把 SQL 笔记写进仓库</span></label>
 </div>
 
 <!-- ============ 第6-8周 ============ -->
@@ -336,16 +337,22 @@
 </div>
 
 <div class="card">
-  <h2><span class="n">▶</span>第 2 阶段：SQL（第 3–5 周）</h2>
-  <div class="hint">二选一，别都看；先跟速通版</div>
+  <h2><span class="n">▶</span>第 2 阶段：SQL（第 4–5 周）</h2>
+  <div class="hint">视频只看语法；练习在你自己电脑上，不用装 MySQL</div>
   <a class="vid" href="https://www.bilibili.com/video/BV1Cm421373b" target="_blank">
     <div class="t">尚硅谷《MySQL 快速入门》17 小时</div>
-    <div class="d">只看「数据查询篇」：基础 select → where → 聚合 → 分组 → 排序 → 多表查询</div>
+    <div class="d">只看「数据查询篇」：基础 select → where → 排序 → 聚合 → 分组 → 多表查询</div>
   </a>
   <a class="vid" href="https://www.bilibili.com/video/BV1iq4y1u7vj" target="_blank">
     <div class="t">宋红康《MySQL 从小白到大神》（当字典查，不用从头看）</div>
     <div class="d">哪句语法忘了再来这里搜</div>
   </a>
+  <div class="task" style="border-top:1px solid var(--line)">
+    <span class="tx"><b>本机练习台（这周就用它）</b>
+      <span class="tm">`learning-notes/sql/sql.py` · Python 自带 sqlite3，已建好「班级」「成绩」两张表 + 30 行数据<br>
+      用法：`python sql.py init`（只跑一次）→ `python sql.py "SELECT * FROM 成绩"` → `python sql.py -f w4.sql`</span>
+    </span>
+  </div>
 </div>
 
 <div class="card">
@@ -387,7 +394,7 @@
 </div>
 
 <div class="foot">
-  张雨婷 · 2026.11.4 生成<br>
+  张雨婷 · 2026.11.22 更新（第 4 周）<br>
   目标：GPA 第一，技能每周 3–5 小时，作品集从第一天开始
 </div>
 
